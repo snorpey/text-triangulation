@@ -42,7 +42,16 @@ define(
 				var control = controls[i];
 
 				control.addEventListener( 'change', controlUpdated, false );
-				updateValue( control.id, control.value );
+
+				if ( control.type === 'checkbox' )
+				{
+					updateValue( control.id, control.checked );
+				}
+
+				else
+				{
+					updateValue( control.id, control.value );
+				}
 			}
 
 			is_initialized = true;
@@ -54,9 +63,15 @@ define(
 		{
 			var target = event.target;
 
+			if ( target.type === 'checkbox' )
+			{
+				updateValue( target.id, target.checked );
+			}
 
-
-			updateValue( target.id, target.value );
+			else
+			{
+				updateValue( target.id, target.value );
+			}
 		}
 
 		function updateValue( key, value )

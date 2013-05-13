@@ -44,6 +44,8 @@ define(
 			values.font_size = new_values['font-size'] || 60;
 			values.font_family = new_values['font-family'] || 'sans-serif';
 			values.color = new_values['text-color'] || '#333';
+			values.bold = !! new_values['text-bold'] ? 'bold' : 'normal';
+			values.italic = !! new_values['text-italic'] ? 'italic' : 'normal';
 
 			updateSize();
 		}
@@ -56,7 +58,9 @@ define(
 			{
 				ctx.fillStyle = values.color;
 				ctx.textBaseline = 'middle';
-				ctx.font = 'normal ' + values.font_size + 'px ' + values.font_family;
+
+				// https://developer.mozilla.org/en-US/docs/Web/CSS/font
+				ctx.font = values.italic + ' ' + values.bold + ' ' + values.font_size + 'px ' + values.font_family;
 				ctx.fillText( text, 0, size.height / 2 );
 
 				var image_data = ctx.getImageData( 0, 0, canvas.width, canvas.height );
