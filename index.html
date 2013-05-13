@@ -1,0 +1,64 @@
+<!doctype html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<title>text triangulation experiment</title>
+		<link rel="stylesheet" href="styles/global.css" />
+	</head>
+	<body>
+		<article class="content">
+			<h1 class="headline">triangulate text</h1>
+			<p>create polygons from text. this script uses the <a href="https://en.wikipedia.org/wiki/Delaunay_triangulation" title="Wikipedia article on Delaunay Triangulation">delaunay triangulation</a> algorithm. this experiment was created by <a href="http://fishnation.de">georg</a>. you can follow him on <a href="https://twitter.com/snorpey">twitter</a> or explore the source code on <a href="https://github.com/snorpey/triangulation">github</a>.</p>
+		</article>
+		<div class="content" id="controls">
+			<h1 class="headline">text controls</h1>
+			<div class="control-wrapper text-control-wrapper clear">
+				<label class="control-label" for="text-input">text</label>
+				<input class="control-input" type="text" id="text-input" value="text" />
+			</div>
+			<div class="control-wrapper text-control-wrapper">
+				<label class="control-label" for="font-family">font family</label>
+				<input class="control-input" type="text" id="font-family" value="georgia" />
+			</div>
+			<div class="control-wrapper range-control-wrapper">
+				<label class="control-label" for="blur">font-size</label>
+				<input class="control-input" type="range" id="font-size" min="1" max="300" value="50" />
+			</div>
+			<div class="control-wrapper text-control-wrapper">
+				<label class="control-label" for="text-color">color</label>
+				<input class="control-input" name="color" type="color" id="text-color" value="#333333" />
+			</div>
+			<h1 class="headline clear">triangulation controls</h1>
+			<div class="control-wrapper range-control-wrapper clear">
+				<label class="control-label" for="blur">blur</label>
+				<input class="control-input" type="range" id="blur" min="1" max="100" value="5" />
+			</div>
+			<div class="control-wrapper range-control-wrapper">
+				<label class="control-label" for="accuracy">accuracy</label>
+				<input class="control-input" type="range" id="accuracy" min="0" max="100" value="80" />
+			</div>
+			<div class="control-wrapper range-control-wrapper">
+				<label class="control-label" for="point-rate">point rate</label>
+				<input class="control-input" type="range" id="point-rate" min="0" max="100" value="50" />
+			</div>
+			<div class="control-wrapper range-control-wrapper">
+				<label class="control-label" for="point-count">point count</label>
+				<input class="control-input" type="range" id="point-rate" min="0" max="100" value="50" />
+			</div>
+		</div>
+		<div class="canvas-wrapper clear">
+			<h1 class="headline">text preview</h1>
+			<canvas id="text-canvas"></canvas>
+		</div>
+		<div class="canvas-wrapper clear">
+			<h1 class="headline">result</h1>
+			<canvas id="canvas"></canvas>
+		</div>
+		<div class="export-wrapper">
+			<button id="save-button" class="button">export image</button>
+			<a id="png-button" download="triangulated-image.png" target="_blank" class="download-link">download bitmap file<span> (.png)</span></a>
+			<a id="svg-button" download="triangulated-image.svg" target="_blank" class="download-link">download vector file<span> (.svg)</span></a>
+		</div>
+		<script src="scripts/lib/require-2.1.4.js" data-main="scripts/src/main"></script>
+	</body>
+</html>
