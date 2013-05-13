@@ -5,6 +5,10 @@ this is an experiment for the web browser. it uses the [delaunay triangulation](
 
 [![triangulation experiment screen shot](http://dl.dropboxusercontent.com/u/1098704/Screenshots/github-text-triangulation.png)](http://snorpey.github.io/text-triangulation/)
 
+[online demo](http://snorpey.github.io/text-triangulation/)
+
+you can fine another experiment that applies the the triangulation to images here: [http://snorpey.github.io/triangulation/](http://snorpey.github.io/triangulation/)
+
 third party code used in this experiment
 ---
 * some parts of the code code from [triangulation image generator](http://jsdo.it/akm2/xoYx) by [akm2](http://codepen.io/akm2), MIT license
