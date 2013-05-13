@@ -94,10 +94,22 @@ a:hover
 		color: #666;
 	}
 
+	.control-label.inline
+	{
+		display: inline;
+		width: auto;
+	}
+
 	.control-input
 	{
 		display: block;
 		width: 100px;
+	}
+
+	.control-input.inline
+	{
+		display: inline;
+		width: auto;
 	}
 
 	.control-input[type="color"]
