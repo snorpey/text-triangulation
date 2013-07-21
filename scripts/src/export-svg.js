@@ -54,11 +54,14 @@ define(
 					var key = triangle_keys[j];
 					points[j] = triangle[key].x + ',' + triangle[key].y;
 				}
-
-				svg += '<polygon ';
-				svg += 'points="' + points.join( ' ' ) + '" ';
-				svg += 'fill="' + triangle.color + '" ';
-				svg += '/>';
+				
+				if ( triangle.color !== 'rgba(0, 0, 0, 0)' )
+				{
+					svg += '<polygon ';
+					svg += 'points="' + points.join( ' ' ) + '" ';
+					svg += 'fill="' + triangle.color + '" ';
+					svg += '/>';
+				}
 			}
 
 			svg += '</svg>';
