@@ -1,13 +1,13 @@
 text triangulation experiment
 ===
 
-this is an experiment for the web browser. it uses the [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) algorithm to alter an image.
+this is an experiment for the web browser. it uses the [delaunay triangulation](https://en.wikipedia.org/wiki/Delaunay_triangulation) algorithm to alter text input.
 
 [![triangulation experiment screen shot](http://dl.dropboxusercontent.com/u/1098704/Screenshots/github-text-triangulation.png)](http://snorpey.github.io/text-triangulation/)
 
 [online demo](http://snorpey.github.io/text-triangulation/)
 
-you can fine another experiment that applies the the triangulation to images here: [http://snorpey.github.io/triangulation/](http://snorpey.github.io/triangulation/)
+you can find another experiment that applies the the triangulation to images here: [http://snorpey.github.io/triangulation/](http://snorpey.github.io/triangulation/)
 
 third party code used in this experiment
 ---
@@ -21,4 +21,4 @@ third party code used in this experiment
 
 license
 ---
-[MIT License](http://www.opensource.org/licenses/mit-license.php)
+[MIT License](LICENSE)
