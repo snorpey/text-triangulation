@@ -20,8 +20,23 @@ define(
 		var values;
 		var signals;
 		var triangles;
+		var triangle;
+		var triangle_center_x;
+		var triangle_center_y;
 		var px_data;
+		var pixel;
 		var timeout_id;
+
+		var color_data;
+		var blurred_image_data;
+		var greyscale_data;
+		var edge_image_data;
+		var edge_points;
+		var edge_vertices;
+		var polygons;
+
+		var len;
+		var i;
 
 		function init( shared )
 		{
@@ -59,13 +74,15 @@ define(
 
 			tmp_ctx.putImageData( px_data, 0, 0 );
 
-			var color_data = tmp_ctx.getImageData( 0, 0, tmp_canvas.width, tmp_canvas.height );
-			var blurred_image_data = blur( px_data, values.blur, true );
-			var greyscale_data = greyscale( blurred_image_data );
-			var edge_image_data = detectEdges( greyscale_data, values.accuracy, 5 );
-			var edge_points = getEdgePoints( edge_image_data, 50, values.accuracy );
-			var edge_vertices = getRandomVertices( edge_points, values['point-rate'], values['point-count'] );
-			var polygons = triangulate( edge_vertices );
+			// see https://github.com/snorpey/triangulation/blob/develop/scripts/src/process.js#L86
+			// for some more details...
+			color_data         = tmp_ctx.getImageData( 0, 0, tmp_canvas.width, tmp_canvas.height );
+			blurred_image_data = blur( px_data, values.blur, true );
+			greyscale_data     = greyscale( blurred_image_data );
+			edge_image_data    = detectEdges( greyscale_data, values.accuracy, 5 );
+			edge_points        = getEdgePoints( edge_image_data, 50, values.accuracy );
+			edge_vertices      = getRandomVertices( edge_points, values['point-rate'], values['point-count'] );
+			polygons           = triangulate( edge_vertices );
 
 			triangles = getColorfulTriangles( polygons, color_data );
 
@@ -76,8 +93,7 @@ define(
 
 		function drawTriangles( ctx, triangles )
 		{
-			var len = triangles.length;
-			var i, triangle;
+			len = triangles.length;
 
 			for ( i = 0; i < len; i++ )
 			{
@@ -119,8 +135,7 @@ define(
 
 		function getColorfulTriangles( triangles, color_data )
 		{
-			var len = triangles.length;
-			var i, triangle, triangle_center_x, triangle_center_y, pixel;
+			len = triangles.length;
 
 			for ( i = 0; i < len; i++ )
 			{
@@ -169,7 +184,7 @@ define(
 
 		function scaleRange( value, low_1, high_1, low_2, high_2 )
 		{
-    		return low_2 + ( high_2 - low_2) * ( value - low_1 ) / (high_1 - low_1 );
+			return low_2 + ( high_2 - low_2) * ( value - low_1 ) / (high_1 - low_1 );
 		}
 
 		return { init: init };
